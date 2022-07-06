@@ -11,46 +11,63 @@ public class JunitUserRegistrationTest {
         try {
             Assert.assertTrue(userRegistration.firstNameValidation("vod"));
         } catch (InvalidInputExceptionError e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
-
+     @Test
+    public void positiveLastNameValidationTest() throws InvalidInputExceptionError {
+        Assert.assertTrue(userRegistration.lastNameValidation("vod"));
+    }
 
     @Test
-    public void lastNameValidationTest() {
+    public void negativeLastNameValidationTest() {
         try {
             Assert.assertTrue(userRegistration.lastNameValidation("sr@12"));
         } catch (InvalidInputExceptionError e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
 
     }
 
     @Test
-    public void emailValidationTest() {
+    public void positiveEmailValidationTest() throws InvalidInputExceptionError {
+        Assert.assertTrue(userRegistration.emailValidation("sravan.sunny81@gmail.com"));
+    }
+      @Test
+    public void negativeEmailValidationTest() {
         try {
-            Assert.assertTrue(userRegistration.emailValidation("srs..123@gamil.com"));
+            Assert.assertTrue(userRegistration.emailValidation("sra..123@gamil.com"));
         } catch (InvalidInputExceptionError e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
     @Test
-    public void phoneNumberValidationTest() {
+    public void positivePhoneNumberValidationTest() throws InvalidInputExceptionError {
+        Assert.assertTrue(userRegistration.phoneNumberValidation("+91 9052382248"));
+    }
+
+    @Test
+    public void negativePhoneNumberValidationTest() {
         try {
             Assert.assertTrue(userRegistration.phoneNumberValidation("+91 01245"));
         } catch (InvalidInputExceptionError e) {
-            System.out.println(e);
-        }
+            e.printStackTrace();
+             }
     }
 
     @Test
-    public void passwordValidationTest() {
+    public void positivePassWordValidationTest() throws InvalidInputExceptionError {
+        Assert.assertTrue(userRegistration.passwordValidation("Sravan@6545"));
+    }
+
+    @Test
+    public void negativePasswordValidationTest() {
         try {
-            Assert.assertTrue(userRegistration.passwordValidation("rav@inad1@"));
+            Assert.assertTrue(userRegistration.passwordValidation("rav@ivni1@"));
         } catch (InvalidInputExceptionError e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
